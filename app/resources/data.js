@@ -21,6 +21,6 @@ export default data = [
     },
     {
         url: 'http://s3.scoopwhoop.com/anj/Dead_bear4387/440063853.jpg',
-        myReact: 'sad' j
+        myReact: 'sad'
     }
 ]
