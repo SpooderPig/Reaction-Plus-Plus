@@ -29,17 +29,17 @@ export default class ReactPieGraph extends Component {
    }]
 
    let options = {
-     margin: {
+     /*margin: {
        top: 5,
        left: 20,
        right: 20,
        bottom: 20
-     },
-     width: 350,
-     height: 350,
+     },*/
+     width: 260,
+     height: 260,
      color: '#2980B9',
-     r: 50,
-     R: 150,
+     r: 25,
+     R: 125,
      legendPosition: 'topLeft',
      animate: {
        type: 'oneByOne',
@@ -51,13 +51,18 @@ export default class ReactPieGraph extends Component {
        fontSize: 8,
        fontWeight: true,
        color: '#ECF0F1'
-     }
+     },
    }
 
 
    return (
-     <View style ={{alignItems: 'center', justifyContent: 'center', flexDirection: 'row',}}>
-       <View style={{height: 20, width: 40, }}/>
+     <View style ={{
+       alignItems: 'center',
+       justifyContent: 'center',
+       flexDirection: 'row',
+       paddingTop: 30,
+       }}>
+       <View style={{height: 20, }}/>
        <Pie
          data={data}
          options={options}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, StatusBar } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import { HomePage, ReactScreen } from './screens';
+import { HomePage, ReactScreen, UploadScreen } from './screens';
 
 export default Root = StackNavigator({
   HomePage: {
@@ -28,6 +28,19 @@ export default Root = StackNavigator({
         backgroundColor: '#2196f3',
       },
     },
-  }
+  },
+
+  UploadScreen: {
+    screen: UploadScreen,
+    navigationOptions: {
+      title: 'Upload',
+      headerTintColor: Platform.OS === 'ios' ? null : 'white',
+      headerStyle: Platform.OS === 'ios' ? {} : {
+        height: 56 + StatusBar.currentHeight, // 56 = Header/Toolbar spec
+        paddingTop: StatusBar.currentHeight, // StatusBar height
+        backgroundColor: '#2196f3',
+      },
+    },
+  },
   
 })
