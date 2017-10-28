@@ -3,29 +3,32 @@ import PropTypes from 'prop-types'
 import { 
     View,
     Image,
-    TouchableOpacity
+    TouchableOpacity,
+    Text,
 } from 'react-native';
 
-export default class ReactionInco extends Component {
+export default class ReactionIcon extends Component {
     static propTypes = {
+        title: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
         length: PropTypes.number.isRequired,
     }
 
     render() {
-        const {url, length} = this.props
+        const {title, url, length} = this.props
         return (
             <TouchableOpacity onPress={this.props.disabled ? emptyLambda : this.props.onPress}>
                 <View style = {{backgroundColor: '#e5e5e5',
                                 borderRadius: 3,
                                 borderWidth: 1,
                                 borderColor: 'black',
-                                width: length + 10,
-                                height: length + 10,
+                                width: length + 25,
+                                height: length + 25,
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 }}>
                     <Image source = {{uri: url}} style = {{width: length, height: length,}}/>
+                    <Text style = {{fontSize: 11,}}>{title}</Text>
                 </View>
             </TouchableOpacity>
         );

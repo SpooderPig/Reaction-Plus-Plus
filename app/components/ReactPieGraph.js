@@ -5,29 +5,34 @@ import {
 } from 'react-native'
 import PropTypes from 'prop-types'
 import {Pie} from 'react-native-pathjs-charts';
+import {reactions} from '../resources';
 
 export default class ReactPieGraph extends Component {
- render() {
-   let data = [{
+
+  render() {
+    //console.log(reactions)
+   let data = reactions['happy'] + reactions['disgusted'] + reactions['angry'] +  reactions['surprised'] + reactions['contemptuous'] + reactions['sad'] > 0 ? 
+   [{
      "name": "Happy",
-     "percentage": 0.1
+     "timesFelt": reactions['happy'],
    }, {
      "name": "Disgusted",
-     "percentage": 0.1
+     "timesFelt": reactions['disgusted'],
    }, {
      "name": "Angry",
-     "percentage": 0.1
+     "timesFelt": reactions['angry'],
    }, {
      "name": "Surprised",
-     "percentage": 0.1
+     "timesFelt": reactions['surprised'],
    }, {
      "name": "Contemptuous",
-     "percentage": 0.1
+     "timesFelt": reactions['contemptuous'],
    }, {
-     "name": "Sad",
-     "percentage": 0.1
+    "name": reactions['sad'] > 0 ? 'Sad' : '',
+    "timesFelt": reactions['sad'],
    }]
-
+   : 
+   [{"name": "No Emotions Experiened Yet", timesFelt: 1}]
    let options = {
      /*margin: {
        top: 5,
@@ -47,7 +52,7 @@ export default class ReactPieGraph extends Component {
        fillTransition: 3
      },
      label: {
-       fontFamily: 'Arial',
+       fontFamily: 'Trebuchet MS',
        fontSize: 8,
        fontWeight: true,
        color: '#ECF0F1'
@@ -66,7 +71,7 @@ export default class ReactPieGraph extends Component {
        <Pie
          data={data}
          options={options}
-         accessorKey="percentage" />
+         accessorKey="timesFelt" />
      </View>
    )
  }

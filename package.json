@@ -1,3 +1,4 @@
+
 {
   "name": "ReactionPlus",
   "version": "0.1.0",
@@ -25,5 +26,10 @@
     "react-native-chart": "^1.0.8-beta",
     "react-native-pathjs-charts": "0.0.31",
     "react-navigation": "^1.0.0-beta.13"
+  },
+  "rnpm": {
+    "assets": [
+      "app/fonts"
+    ]
   }
 }
