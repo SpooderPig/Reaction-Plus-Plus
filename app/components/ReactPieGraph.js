@@ -6,10 +6,15 @@ import {
 import PropTypes from 'prop-types'
 import {Pie} from 'react-native-pathjs-charts';
 import {reactions} from '../resources';
+import renderIf from '../renderIf';
 
 export default class ReactPieGraph extends Component {
 
+  static propTypes = {
+    display: PropTypes.bool.isRequired,
+  }
   render() {
+    const{display} = this.props;
     //console.log(reactions)
    let data = reactions['happy'] + reactions['disgusted'] + reactions['angry'] +  reactions['surprised'] + reactions['contemptuous'] + reactions['sad'] > 0 ? 
    [{
@@ -33,6 +38,7 @@ export default class ReactPieGraph extends Component {
    }]
    : 
    [{"name": "No Emotions Experiened Yet", timesFelt: 1}]
+   
    let options = {
      /*margin: {
        top: 5,
@@ -59,7 +65,6 @@ export default class ReactPieGraph extends Component {
      },
    }
 
-
    return (
      <View style ={{
        alignItems: 'center',
@@ -67,12 +72,16 @@ export default class ReactPieGraph extends Component {
        flexDirection: 'row',
        paddingTop: 30,
        }}>
-       <View style={{height: 20, }}/>
-       <Pie
-         data={data}
-         options={options}
-         accessorKey="timesFelt" />
+        {renderIf(this.props.display)(
+          //<View style={{height: 20, }}/>,
+          <Pie
+            data= {data}
+            options={options}
+            accessorKey="timesFelt" />
+        )}
+        
+       
      </View>
-   )
+   );
  }
 }

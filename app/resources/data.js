@@ -30,5 +30,5 @@ export default data = [
     [
         require('../resources/imgs/globalWarming.jpg'),
         require('../resources/imgs/starvingChildren.jpg'),
-    ]
+    ],
 ]

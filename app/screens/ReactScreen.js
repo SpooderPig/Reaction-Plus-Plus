@@ -33,17 +33,27 @@ import {ReactionIcon, ReactionPicture} from '../components';
     }
 
     render() {
-
       const { height, width, IconLength } = this.state
       let emotions = ['happy', 'disgusted', 'angry', 'surprised', 'contemptuous', 'sad']
-      imageEmotion = this.props.navigation.state.params != 'random' ? 
-        emotions.indexOf(this.props.navigation.state.params) : Math.floor(Math.random() * 6)
+      
+      if (this.props.navigation.state.params.emotion == 'random') {
+        imageEmotion = Math.floor(Math.random() * 6)
+      }
+      else if (this.props.navigation.state.params.emotion == 'custom') {
+        imageEmotion = 6
+      }
+      else {
+        imageEmotion = emotions.indexOf(this.props.navigation.state.params.emotion)
+      }
+
+      newData = data.concat(this.props.navigation.state.params.userAdded)
+      
       return(
           <View
             onLayout = {this.handleLayout} 
             style={{flex: 1, alignItems: 'center', justifyContent: 'flex-start'}}>
             <ReactionPicture 
-            urls = {data[imageEmotion]}/>
+            urls = {newData[imageEmotion]}/>
             <View style = {{
               flexDirection: height > width ? 'column' : 'row'
             }}>

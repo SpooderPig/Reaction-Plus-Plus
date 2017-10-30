@@ -34,7 +34,7 @@ export default class ReactionPicture extends Component {
   render() {
     const {urls} = this.props
     const{ height, width, } = this.state
-    console.log(height, width)
+    //console.log(urls)
     return(
       <View 
         onLayout = {this.handleLayout}

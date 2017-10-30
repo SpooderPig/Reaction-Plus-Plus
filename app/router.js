@@ -8,6 +8,7 @@ export default Root = StackNavigator({
     screen: HomePage,
     navigationOptions: {
       title: 'Welcome!',
+      headerBackTitle: 'Upload',
       headerTintColor: Platform.OS === 'ios' ? null : 'white',
       headerStyle: Platform.OS === 'ios' ? {} : {
         height: 56 + StatusBar.currentHeight, // 56 = Header/Toolbar spec
@@ -34,6 +35,11 @@ export default Root = StackNavigator({
     screen: UploadScreen,
     navigationOptions: {
       title: 'Upload',
+      headerBackTitleStyle: {
+        backgroundColor: '#2196f3',
+        opacity: 0,
+      },
+      header: null,
       headerTintColor: Platform.OS === 'ios' ? null : 'white',
       headerStyle: Platform.OS === 'ios' ? {} : {
         height: 56 + StatusBar.currentHeight, // 56 = Header/Toolbar spec
